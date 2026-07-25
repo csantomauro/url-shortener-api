@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:16
+    container_name: shortener-postgres
+    environment:
+      POSTGRES_DB: shortenerdb
+      POSTGRES_USER: shorteneruser
+      POSTGRES_PASSWORD: shortenerpass
+    ports:
+      - "5436:5432"
+    volumes:
+      - shortener_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  shortener_postgres_data:
